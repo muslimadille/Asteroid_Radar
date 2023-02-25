@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="asteroid"
+            type="com.udacity.asteroidradar.api.Asteroid" />
+    </data>
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/codid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/default_text_color"
+                android:text="@{asteroid.name}" />
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/default_text_color"
+                android:text="@{asteroid.date}" />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/asteroid_list_status_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:statusIcon="@{asteroid.is_potentially_hazardous_asteroid()}"
+            tools:srcCompat="@drawable/ic_status_normal" />
+
+
+
+
+
+    </LinearLayout>
+</layout>
